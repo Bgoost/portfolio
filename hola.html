@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left, #2bc0e4, #eaecc6);
+}
+
+.cross-checkbox {
+  display: none;
+}
+
+.menu {
+  position: relative;
+}
+
+.cross {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.3rem #161e3f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(135deg);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+
+
+.cross-checkbox:checked + .menu-cross > .cross {
+  transform: none;
+  box-shadow: 0 0 0 3.4rem #161e3f;
+}
+
+
+p {
+  z-index: -1;
+  text-decoration: none;
+  font-size: 60px;
+}
+    </style>
+  </head>
+  <body>
+    <input class="cross-checkbox" id="menu" type="checkbox" name="menu" />
+    <nav class="menu">
+      <label class="menu-cross" for="menu">
+        <p>&times;</p>
+      </label>
+
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+/* ======================== GENERIC STUFF ======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* overflow: hidden; */
+    background-color: #dcd9cd;
+}
+
+main {
+    padding: 20px;
+    overflow: auto;
+}
+
+h1 {
+    font-size: 2em;
+    color: #666;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #666;
+}
+
+footer {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+/* =============================================================== */
+
+/* ======================== MENU ======================== */
+.menu {
+    /* POS */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 0%;
+    /* it makes it hidden when closed*/
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* PRETTY */
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-y: hidden;
+    /* SCROLLBAR */
+    transition: 0.5s;
+    /* it collapse smoothly */
+}
+
+/* ==== CLOSE - OPEN BTN ==== */
+/* the whole thing pos */
+.cross-supreme {
+    /* POS */
+    z-index: 100; 
+    position: fixed;
+    place-self: start; /* START: UP // END: DOWN */
+    padding: 2% 2px 3px 90%;
+    right: 0;
+}
+/* = */
+.cross {
+    /* POS */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    cursor: pointer; /* finger cursor */
+    
+    /* PRETTY */
+    box-shadow: 0 0 0 0.3rem red;
+    border-radius: 50%;
+    
+    /* ANIMATION */
+    transform: rotate(135deg);
+    transition: 0.5s;
+}
+
+.cross p {
+    /* POS */
+    z-index: -1;
+    
+    /* PRETTY */
+    text-decoration: none;
+    font-size: 40px;
+    color: red;
+    
+    /* TEXT NOT SELECTABLE */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.cross-checkbox {
+    display: none; /* not show the checkbox */
+}
+
+.cross-checkbox:checked + .menu-cross > .cross {
+    box-shadow: 0 0 0 0rem red;
+    transform: none;
+}
+/* ========================== */
+/* ======== NAV MENU ======== */
+nav {
+    width: 100%;
+    /* background text size */
+}
+
+nav ul {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+nav ul li {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li a {
+    /* POS */
+    text-decoration: none;
+    padding: 5px 20px;
+    display: inline-flex;
+
+    /* PRETTY */
+    color: #333;
+    /* color of front text */
+    font-size: 3em;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.menu nav ul li a {
+    /* PRETTY */
+    text-decoration: none;
+    /* bullet list */
+    font-size: 36px;
+}
+
+nav ul li:hover a {
+    color: #000;
+    /* color of front text */
+    background: transparent;
+}
+
+/* ======== TEXT BG ======== */
+nav ul li a::before {
+    /* POS */
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    display: flex;
+    z-index: -1;
+
+    /* PRETTY */
+    content: '';
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    color: rgba(255, 0, 0, 0.3);
+    /* color of back text */
+    border-radius: 80%;
+    font-weight: 900;
+
+    /* TRANSITION PRETTY */
+    text-transform: uppercase;
+    letter-spacing: 500px;
+    transform: translate(-50%, -50%);
+    transition: letter-spacing 0.5s, left 0.5s;
+    /* it makes text spacing decrease */
+}
+
+nav ul li a:hover:before {
+    content: attr(data-text);
+    opacity: 1;
+    left: 50%;
+    letter-spacing: 10px;
+    width: 1800px;
+    height: 1800px;
+}
+
+/* COLOR EVERY MENU UL */
+/* ul li:nth-child(6n + 1) a:before {
+    background: #0470fe;
+  }
+  ul li:nth-child(6n + 2) a:before {
+    background: #ff7675;
+  }
+  ul li:nth-child(6n + 3) a:before {
+    background: #1582fe;
+  }
+  /*
+  ul li:nth-child(6n + 4) a:before {
+    background: #a29bfe;
+  }
+  ul li:nth-child(6n + 5) a:before {
+    background: #fd79a8;
+  }
+  ul li:nth-child(6n + 6) a:before {
+    background: #ffeaa7;
+  } */
+
+/* ====================================================== */
+
+
+.project img {
+    width: 100%;
+    height: auto;
+}
